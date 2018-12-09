@@ -9,7 +9,6 @@ class LCBOService {
     public function __construct(){
         $string = file_get_contents('./config.json');
         $json = json_decode($string, true);
-        //print_r($json);
         $this->api_key = $json['key'];
     }
 

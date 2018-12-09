@@ -26,19 +26,19 @@ and open the template in the editor.
                 $("select").change(function () {
                     $("select option:selected").each(function () {
                         //alert($(this).val());
-                        $.get(("index.php?orderby=" + $(this).val()), function (data) {
+                        $.get(("index.php?orderby=" + $(this).val() + '&tags=' + $('#tags').val()), function (data) {
                             $("table").html(header);
                             $("table").append(data);
-                            console.log('got data ordered by' + $(this).val())
+                            console.log('got data ordered by' + $(this).val());
                         });
                     }
                     );
                 });
                 $("#tags").change(function(){
-                   $.get(("index.php?tags=" + $('#tags').val()), function (data) {
+                   $.get(("index.php?tags=" + $('#tags').val() + '&orderby=' + $("select option:selected").val()), function (data) {
                             $("table").html(header);
                             $("table").append(data);
-                            console.log('got data ordered by' + $('#tags').val())
+                            console.log('got data ordered by' + $('#tags').val());
                         });
                 });
             });
