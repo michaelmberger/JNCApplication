@@ -1,17 +1,20 @@
 <?php
 
 class LCBOService {
-
-    const API_KEY = 'MDowMGVhNmFhMC1mOGJkLTExZTgtOWU0Ny02N2JlYTY4YjE3MzA6d0NtRWZqR3daVlQ2d2U2cEl1RlZzQXNhQ1RNd1hTcFJ3d1Qw';
+    var $api_key = '';
     const URL = 'https://lcboapi.com/';
     const STORES = 'stores';
     const PRODUCTS = 'products';
 
-    
+    private function __construct(){
+        $string = file_get_contents('./test.json');
+        $json = json_decode($string, true);
+        $this->api_key = $json->key;
+    }
 
     private function callAPI($additionalFilters) {
         $process = curl_init();
-        $additionalHeaders = 'Authorization: Token ' . LCBOService::API_KEY;
+        $additionalHeaders = 'Authorization: Token ' . $this->api_key;
         curl_setopt($process, CURLOPT_HTTPHEADER, array('Content-Type: application/json', $additionalHeaders));
         curl_setopt($process, CURLOPT_HEADER, FALSE);
         curl_setopt($process, CURLOPT_TIMEOUT, 30);
