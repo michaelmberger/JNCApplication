@@ -6,10 +6,11 @@ class LCBOService {
     const STORES = 'stores';
     const PRODUCTS = 'products';
 
-    private function __construct(){
-        $string = file_get_contents('./test.json');
+    public function __construct(){
+        $string = file_get_contents('./config.json');
         $json = json_decode($string, true);
-        $this->api_key = $json->key;
+        //print_r($json);
+        $this->api_key = $json['key'];
     }
 
     private function callAPI($additionalFilters) {
