@@ -6,7 +6,8 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>LCBO API</title>
+        <title>Liquor Deal Finding App</title>
+        <LINK href="index.css" rel="stylesheet" type="text/css">
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"
                 integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
@@ -46,8 +47,10 @@ and open the template in the editor.
         </script>
     </head>
     <body>
-        <div>
-            <div><span>Order by</span>
+        <h1>Liquor Deal Finding App</h1>
+        <div id="content">
+            <div id="criteria">
+                <span>Order by</span>
                 <span>
                     <select name="orderby">
                         <option value="none">None</option>
@@ -55,11 +58,13 @@ and open the template in the editor.
                         <option value="currentprice">Current Price</option>
                     </select>
                 </span>
+                 <div><label>Filter by tag(separate by comma, no spaces)</label><input id="tags" name="tags"></div>
             </div>
-            <div><label>Filter by tag</label><input id="tags" name="tags"></div>
-            <table>
+           
+            <table id="data">
                 
             </table>
+            
         </div>
     </body>
 </html>
