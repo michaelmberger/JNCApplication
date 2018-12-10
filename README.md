@@ -42,3 +42,5 @@ The API to the service is pretty terrible. I should refactor to build a request 
 could get an arbitrary amount of records and have a full page every time. Right now filtering by tags sucks.
 
  I really need pages or breadcrumbs. There's no way to get the data after the first page.
+ 
+ I should probably put in some PHPDoc comments or something.
